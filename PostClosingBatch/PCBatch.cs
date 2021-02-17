@@ -1,5 +1,6 @@
 ﻿using EllieMae.Encompass.Automation;
 using EllieMae.Encompass.BusinessObjects.Loans;
+using EllieMae.Encompass.BusinessObjects.Users;
 using EllieMae.Encompass.Client;
 using EllieMae.Encompass.ComponentModel;
 using EllieMae.Encompass.Query;
@@ -41,7 +42,7 @@ namespace PostClosingBatch
 
             //Excel prep and call
             Microsoft.Office.Interop.Excel.Application userApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel.Workbook userWorkbook = userApp.Workbooks.Open(@"H:\Encompass Support\Batch_Updater3.csv");
+            Microsoft.Office.Interop.Excel.Workbook userWorkbook = userApp.Workbooks.Open(@"H:\Encompass Support\Batch_Updater2.csv");
             Microsoft.Office.Interop.Excel._Worksheet userWorksheet = userWorkbook.Sheets[1];
             Microsoft.Office.Interop.Excel.Range userRange = userWorksheet.UsedRange;
             //userWorksheet.Cells.NumberFormat = "General";
@@ -60,6 +61,11 @@ namespace PostClosingBatch
             string r1c4string = "";
             string r1c5string = "";
             string r1c6string = "";
+            var batchT = loan.Fields["CX.PC.BATCH.TYPE"].Value;
+            string batchType = batchT.ToString();
+            DateTime dateRan = new DateTime();
+            dateRan = DateTime.Now;
+            
 
             double colData1 = 0;
             string colDatSt = colData1.ToString();
@@ -186,14 +192,12 @@ namespace PostClosingBatch
                     {
                         batch.Fields.Add(r1c6string, colData6string);
                     }
+                    batch.Fields.Add("CX.PC.BATCH.COLL.TRACK", currentUser);
+                    batch.Fields.Add("CX.PC.BATCH.COL.DATE", dateRan);
+                    batch.Fields.Add("CX.PC.BATCH.IRON.MOUNTAIN", batchType);
                     EncompassApplication.Session.Loans.SubmitBatchUpdate(batch);
                 }
 
-
-
-
-            
-            
             }
             catch (Exception)
             {
@@ -202,7 +206,7 @@ namespace PostClosingBatch
             }
 
             userRange.Delete(XlDeleteShiftDirection.xlShiftUp);
-            string fileName = @"H:\Encompass Support\Batch_Updater3.csv";
+            string fileName = @"H:\Encompass Support\Batch_Updater2.csv";
             string folder = System.IO.Path.GetDirectoryName(fileName);
             if (System.IO.Directory.Exists(folder))
             {
