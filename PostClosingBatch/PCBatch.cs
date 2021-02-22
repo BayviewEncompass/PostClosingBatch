@@ -7,6 +7,7 @@ using EllieMae.Encompass.Query;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace PostClosingBatch
 {
@@ -40,15 +41,16 @@ namespace PostClosingBatch
             newSession.Start("https://TEBE11147866.ea.elliemae.net$TEBE11147866", "admin", "Y0uT@lk!ngT0M3?");
             String currentUser = EncompassApplication.Session.UserID;
 
-            //Excel prep and call
-            Microsoft.Office.Interop.Excel.Application userApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel.Workbook userWorkbook = userApp.Workbooks.Open(@"H:\Encompass Support\Batch_Updater2.csv");
+                //Excel prep and call
+                Microsoft.Office.Interop.Excel.Application userApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook userWorkbook = userApp.Workbooks.Open(@"\\ftwfs02\Groups\POS\Encompass Support\Batch_Updater1.csv");
             Microsoft.Office.Interop.Excel._Worksheet userWorksheet = userWorkbook.Sheets[1];
             Microsoft.Office.Interop.Excel.Range userRange = userWorksheet.UsedRange;
             //userWorksheet.Cells.NumberFormat = "General";
-
-            //set shortcut for loan call
-            Loan loan = EncompassApplication.CurrentLoan;
+            try
+            {
+                //set shortcut for loan call
+                Loan loan = EncompassApplication.CurrentLoan;
 
             //row/column setup
             int rCnt = 1;
@@ -66,7 +68,7 @@ namespace PostClosingBatch
             DateTime dateRan = new DateTime();
             dateRan = DateTime.Now;
             
-
+            
             double colData1 = 0;
             string colDatSt = colData1.ToString();
 
@@ -102,8 +104,7 @@ namespace PostClosingBatch
 
             cCnt = 1;
 
-            try
-            {
+
                 rCnt = 2;
                 cCnt = 2;
                 var colData2 = userWorksheet.Cells[rCnt, cCnt].Text;
@@ -198,31 +199,47 @@ namespace PostClosingBatch
                     EncompassApplication.Session.Loans.SubmitBatchUpdate(batch);
                 }
 
+
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Something went wrong.  Please click YES to save on the next popup, rebuild the spreadsheet and run the Batch Update again."); 
             }
-
-            userRange.Delete(XlDeleteShiftDirection.xlShiftUp);
-            string fileName = @"H:\Encompass Support\Batch_Updater2.csv";
-            string folder = System.IO.Path.GetDirectoryName(fileName);
-            if (System.IO.Directory.Exists(folder))
+            finally
             {
-                
-                userWorkbook.Close(true, fileName, null);
+                userRange.Delete(XlDeleteShiftDirection.xlShiftUp);
+                string fileName = @"\\ftwfs02\Groups\POS\Encompass Support\Batch_Updater1.csv";
+                string folder = System.IO.Path.GetDirectoryName(fileName);
+                if (System.IO.Directory.Exists(folder))
+                {
+
+                    userWorkbook.Close(true, fileName, null);
+                }
+                userApp.Quit();
+                Marshal.ReleaseComObject(userWorksheet);
+                Marshal.ReleaseComObject(userWorkbook);
+                Marshal.ReleaseComObject(userApp);
+                newSession.End();
+               
+
             }
 
-            
 
+            //userRange.Delete(XlDeleteShiftDirection.xlShiftUp);
+            //string fileName = @"H:\Encompass Support\Batch_Updater2.csv";
+            //string folder = System.IO.Path.GetDirectoryName(fileName);
+            //if (System.IO.Directory.Exists(folder))
+            //{
 
-            userApp.Quit();
-            Marshal.ReleaseComObject(userWorksheet);
-            Marshal.ReleaseComObject(userWorkbook);
-            Marshal.ReleaseComObject(userApp);
-            newSession.End();
+            //    userWorkbook.Close(true, fileName, null);
+            //}
 
+            //userApp.Quit();
+            //Marshal.ReleaseComObject(userWorksheet);
+            //Marshal.ReleaseComObject(userWorkbook);
+            //Marshal.ReleaseComObject(userApp);
+            //newSession.End();
 
 
         }
