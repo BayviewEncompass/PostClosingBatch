@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Client">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Encompass\Client.dll</HintPath>
-    </Reference>
     <Reference Include="ClientServer, Version=1.5.1.0, Culture=neutral, PublicKeyToken=d11ef57bba4acf91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Encompass\ClientServer.dll</HintPath>
@@ -53,11 +50,13 @@
     <Reference Include="EllieMae.Encompass.AsmResolver">
       <HintPath>..\..\..\..\..\..\SmartClientCache\Apps\Ellie Mae\Encompass\EllieMae.Encompass.AsmResolver.dll</HintPath>
     </Reference>
-    <Reference Include="EncompassAutomation">
-      <HintPath>..\..\..\..\..\..\SmartClientCache\Apps\Ellie Mae\Encompass\SDK\EncompassAutomation.dll</HintPath>
+    <Reference Include="EncompassAutomation, Version=20.2.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SmartClientCache\Apps\Ellie Mae\Encompass - TEST\SDK\EncompassAutomation.dll</HintPath>
     </Reference>
-    <Reference Include="EncompassObjects">
-      <HintPath>..\..\..\..\..\..\SmartClientCache\Apps\Ellie Mae\Encompass\SDK\EncompassObjects.dll</HintPath>
+    <Reference Include="EncompassObjects, Version=1.5.1.0, Culture=neutral, PublicKeyToken=d11ef57bba4acf91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SmartClientCache\Apps\Ellie Mae\Encompass - TEST\SDK\EncompassObjects.dll</HintPath>
     </Reference>
     <Reference Include="MainUI">
       <HintPath>..\..\..\..\..\..\SmartClientCache\Apps\UAC\Ellie Mae\1ZWX9OSIET83w+yYNgRiRfTDNe8=\Encompass360\MainUI.dll</HintPath>
@@ -66,6 +65,10 @@
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Office\Office16\DCF\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\SmartClientCache\Apps\UAC\Ellie Mae\1ZWX9OSIET83w+yYNgRiRfTDNe8=\Encompass360\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,8 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatchUpdatePC.cs" />
     <Compile Include="PCBatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BatchUpdatePC.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

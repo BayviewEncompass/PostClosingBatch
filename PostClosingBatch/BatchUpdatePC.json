@@ -1,0 +1,148 @@
+{
+	"BatchUpdatePC": [
+		{
+
+			"RepName": "Assumption Assump agmt",
+			"Col1": "364",
+			"Col2": "CX.ASSUM.AGREEMENT.DATE",
+			"Col3": "CX.ASSUM.AGREEMENT.NUMBER",
+			"Col4": "CX.ASSUM.COLLATERAL.DATE",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Assumption checks received",
+			"Col1": "364",
+			"Col2": "CX.ASSUMPTION.CHECK.RECEIVED",
+			"Col3": "",
+			"Col4": "",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Assumption closing package received",
+			"Col1": "364",
+			"Col2": "CX.COL.ACTION.DATE.1",
+			"Col3": "",
+			"Col4": "",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Assumption Deed",
+			"Col1": "364",
+			"Col2": "CX.ASSUM.DEED.DATE",
+			"Col3": "CX.ASSUM.DEED.NUMBER",
+			"Col4": "",
+			"Col5": ""
+		},
+		{
+
+			"repName": "File sent to Iron Mt",
+			"Col1": "364",
+			"Col2": "CX.PC.DATETOSTORAGE",
+			"Col3": "CX.PC.STORAGFEDEX",
+			"Col4": "",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Govt Insuring FHA Remittance",
+			"Col1": "364",
+			"Col2": "3079",
+			"Col3": "3080",
+			"Col4": "3081",
+			"Col5": "3082"
+		},
+		{
+
+			"repName": "Govt Insuring VA Remittance",
+			"Col1": "364",
+			"Col2": "VASUMM.X82",
+			"Col3": "3080",
+			"Col4": "3081",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Horsham Collateral Sent template",
+			"Col1": "364",
+			"Col2": "1998",
+			"Col3": "CX.COL.TRACKING.NO.3",
+			"Col4": "CX.STEWART",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Horsham Doc Received template",
+			"Col1": "364",
+			"Col2": "CX.COL.ACTION.DATE.1",
+			"Col3": "CX.COL.TRACKING.NO.1",
+			"Col4": "CX.STEWART",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Indecomm Collateral Sent",
+			"Col1": "364",
+			"Col2": "1998",
+			"Col3": "CX.COL.TRACKING.NO.3",
+			"Col4": "CX.STEWART",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Indecomm Doc Received",
+			"Col1": "364",
+			"Col2": "CX.COL.ACTION.DATE.1",
+			"Col3": "CX.COL.TRACKING.NO.1",
+			"Col4": "CX.STEWART",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Indecomm Final Title Policy Received and Sent",
+			"Col1": "364",
+			"Col2": "CX.FD.TITLER",
+			"Col3": "CX.FD.TITLES",
+			"Col4": "CX.FD.TITLEFEDEX",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Indecomm Recorded Mortgages Received and Sent",
+			"Col1": "364",
+			"Col2": "CX.FD.MORTR",
+			"Col3": "CX.FD.MORTS",
+			"Col4": "CX.FD.MORTFEDEX",
+			"Col5": ""
+		},
+		{
+
+			"repName": "SourcePoint Collateral Sent",
+			"Col1": "364",
+			"Col2": "1998",
+			"Col3": "*CX.COL.TRACKING.NO.3",
+			"Col4": "CX.STEWART",
+			"Col5": ""
+		},
+		{
+
+			"repName": "SourcePoint Doc Received",
+			"Col1": "364",
+			"Col2": "CX.COL.ACTION.DATE.1",
+			"Col3": "CX.COL.TRACKING.NO.1",
+			"Col4": "CX.STEWART",
+			"Col5": ""
+		},
+		{
+
+			"repName": "Assumption Assump agmt",
+			"Col1": "364",
+			"Col2": "CX.SUB.SERVICER.BOARD.DATE",
+			"Col3": "CX.SUB.SERVICER.LOAN.NO",
+			"Col4": "",
+			"Col5": ""
+		}
+	]
+}
